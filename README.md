@@ -193,7 +193,7 @@ Release
 
 ## Exercise 2: Merges and conflicts
 
-In this section, we will see how git handles changes to a repository that are not made locally. These features aloow multiple people to collaborate on the same project simultaeously.  
+In this section, we will see how git handles changes to a repository that are not made locally. These features allow multiple people to collaborate on the same project simultaeously.  
 
 1. Edit this Readme on Github.
 
@@ -253,7 +253,7 @@ It doesn't work! Git doesn't know which change to keep. To fix the problem, we m
 
 You have three choices for resolving conflicts:
 
-1. Open the file in an editor and manually choose which lines to keep. Git will put both versions of the conflict side by side within the file, for example,
+Merge Choice 1. Open the file in an editor and manually choose which lines to keep. Git will put both versions of the conflict side by side within the file, for example,
 
 ```
 <<<<<<<
@@ -263,7 +263,7 @@ This is the local message
 >>>>>>>
 ```
 
-2. Use the version of the file on the _remote_ repository using `git checkout --theirs`
+Merge Choice 2. Use the version of the file on the _remote_ repository using `git checkout --theirs`
 
 ```
 $ git checkout --theirs hello.txt
@@ -271,7 +271,7 @@ $ cat hello.txt
 This is the remote message
 ```
 
-3. Use the version of the file on the _local_ repository using `git checkout --ours`
+Merge Choice 3. Use the version of the file on the _local_ repository using `git checkout --ours`
 
 ```
 $ git checkout --theirs hello.txt
