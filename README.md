@@ -247,10 +247,33 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 It doesn't work! Git doesn't know which change to keep. To fix the problem, we must edit the file and then check in the change. 
 
-Merging changes is common. Below are other options for dealing with conflicts:
+You have three choices for resolving conflicts:
 
-* `git checkout --theirs`: Use the remote version of the file
-* `git checkout --ours`: Use the local version of the file
+1. Open the file in an editor and manually choose which lines to keep. Git will put both versions of the conflict side by side within the file, for example,
 
-Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
+```
+<<<<<<<
+This is the remote message
+======
+This is the local message
+>>>>>>>
+```
+
+2. Use the version of the file on the _remote_ repository using `git checkout --theirs`
+
+```
+$ git checkout --theirs hello.txt
+$ cat hello.txt
+This is the remote message
+```
+
+3. Use the version of the file on the _local_ repository using `git checkout --ours`
+
+```
+$ git checkout --theirs hello.txt
+$ cat hello.txt
+This is the local message
+```
+
+NOTE: Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
 changes, or throw them away by running `git checkout .`
