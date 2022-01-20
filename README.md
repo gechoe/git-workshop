@@ -208,6 +208,10 @@ Fast-forward
  1 file changed, 151 insertions(+), 27 deletions(-)
  ```
 
+NOTE: Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
+changes, or throw them away by running `git checkout .`
+
+
 Now, let's see what happens when you have a conflict.
 
 1. Edit your file, `hello.txt`, on Github
@@ -275,5 +279,12 @@ $ cat hello.txt
 This is the local message
 ```
 
-NOTE: Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
-changes, or throw them away by running `git checkout .`
+Once you resolve the conflict, you add and commit the change like with any other file.
+
+```
+$ git add hello.txt
+$ git commit -m "resolve conflict"
+$ git push
+```
+
+Now the remote respository has the merge resolved.
