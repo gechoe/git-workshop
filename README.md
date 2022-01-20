@@ -161,7 +161,7 @@ $ git commit -m "A fun message"
 ```
 
 We have now saved our changes locally. Use `git log` to see a summary of all the changes made to the repository so far. Notice which commits 
-the pointers `HEAD` and `origin/HEAD` point to.
+the pointers `HEAD` and `origin/HEAD` point to. `origin/HEAD` refers to the version stored in the remote repository.
 
 To backup the changes remotely, you need to `push` the changes back to github.
 
@@ -177,11 +177,6 @@ Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To github.com:BrynMawr-CS312-2021/git-workshop.git
    8ead3cf..783f061  main -> main
 ```
-
-You can see a log of the changes made to the repository. The log shows the IDs and timestamps of each commit. Below, the 
-repository was changed 3 times: an intial commit, adding a README.md file, and adding hello.txt. The commit ID where we added 
-`hello.txt` was 783f0610dbf6c0a357afd9f6e4c4fc18ea595004. Notice that the `HEAD` points to the same commit on both the local 
-and remote repositories. 
 
 **Your local copy should now match the remote copy on github!**
 
