@@ -25,8 +25,8 @@ On your Github account, under Settings/SSH and GPG keys, create a new SSH key an
 
 NOTES:
 * Make sure that your keys are in the `~/.ssh` directory
-* Make sure the `~/.ssh` directory has permissions TODO
-* Make sure the private key has permissions TODO
+* Make sure the `~/.ssh` directory has permissions `drwx--x--x`. If not run `chmod 755 .ssh`
+* Make sure the private key has permissions `-rw-------`. If not run `chmod 600 <private_key>`
 
 == Clone the respository
 
