@@ -1,6 +1,6 @@
 # Setting up an SSH key for Github
 
-In 2020, Github changed their policies to [require token-based authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
+Github changed their policies to [require token-based authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ## Generate the token
 
