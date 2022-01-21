@@ -1,8 +1,8 @@
-= Setting up an SSH key for Github
+# Setting up an SSH key for Github
 
 In 2020, Github changed their policies to [require token-based authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-== Generate the token
+## Generate the token
 
 First, if you do not have a `~/.ssh` directory, do
 
@@ -28,11 +28,11 @@ NOTES:
 * Make sure the `~/.ssh` directory has permissions `drwx--x--x`. If not run `chmod 755 .ssh`
 * Make sure the private key has permissions `-rw-------`. If not run `chmod 600 <private_key>`
 
-== Clone the respository
+## Clone the respository
 
 Make sure that you clone the repository using the SSH url. 
 
-== Local account setup
+## Local account setup
 
 You may need to also set up the ssh-agent for you keys to work. Add the following lines to ~/.bashrc
 
