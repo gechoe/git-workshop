@@ -1,3 +1,5 @@
+I am editing doop-dee-doop!
+
 # Git Workshop
 
 - - -
@@ -161,7 +163,7 @@ $ git commit -m "A fun message"
 ```
 
 We have now saved our changes locally. Use `git log` to see a summary of all the changes made to the repository so far. Notice which commits 
-the pointers `HEAD` and `origin/HEAD` point to.
+the pointers `HEAD` and `origin/HEAD` point to. `origin/HEAD` refers to the version stored in the remote repository.
 
 To backup the changes remotely, you need to `push` the changes back to github.
 
@@ -178,11 +180,6 @@ To github.com:BrynMawr-CS312-2021/git-workshop.git
    8ead3cf..783f061  main -> main
 ```
 
-You can see a log of the changes made to the repository. The log shows the IDs and timestamps of each commit. Below, the 
-repository was changed 3 times: an intial commit, adding a README.md file, and adding hello.txt. The commit ID where we added 
-`hello.txt` was 783f0610dbf6c0a357afd9f6e4c4fc18ea595004. Notice that the `HEAD` points to the same commit on both the local 
-and remote repositories. 
-
 **Your local copy should now match the remote copy on github!**
 
 **NOTE:** You can tell git to ignore changes from certain files by listing them in `.gitignore`. Best practice is to put generated and temporary files into `.gitignore`. For example, the following `.gitignore` file ignores common generated files from vim and macOS.
@@ -198,7 +195,7 @@ Release
 
 ## Exercise 2: Merges and conflicts
 
-In this section, we will see how git handles changes to a repository that are not made locally. These features aloow multiple people to collaborate on the same project simultaeously.  
+In this section, we will see how git handles changes to a repository that are not made locally. These features allow multiple people to collaborate on the same project simultaeously.  
 
 1. Edit this Readme on Github.
 
@@ -212,6 +209,10 @@ Fast-forward
  README.md | 178 ++++++++++++++++++++++++++++++++++++++++++++++++++++----------
  1 file changed, 151 insertions(+), 27 deletions(-)
  ```
+
+NOTE: Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
+changes, or throw them away by running `git checkout .`
+
 
 Now, let's see what happens when you have a conflict.
 
@@ -252,10 +253,40 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 It doesn't work! Git doesn't know which change to keep. To fix the problem, we must edit the file and then check in the change. 
 
-Merging changes is common. Below are other options for dealing with conflicts:
+You have three choices for resolving conflicts:
 
-* `git checkout --theirs`: Use the remote version of the file
-* `git checkout --ours`: Use the local version of the file
+Merge Choice 1. Open the file in an editor and manually choose which lines to keep. Git will put both versions of the conflict side by side within the file, for example,
 
-Sometimes you can't pull because you have *uncommitted* changes that conflict with the remote repository. In this case, either commit the 
-changes, or throw them away by running `git checkout .`
+```
+<<<<<<<
+This is the remote message
+======
+This is the local message
+>>>>>>>
+```
+
+Merge Choice 2. Use the version of the file on the _remote_ repository using `git checkout --theirs`
+
+```
+$ git checkout --theirs hello.txt
+$ cat hello.txt
+This is the remote message
+```
+
+Merge Choice 3. Use the version of the file on the _local_ repository using `git checkout --ours`
+
+```
+$ git checkout --theirs hello.txt
+$ cat hello.txt
+This is the local message
+```
+
+Once you resolve the conflict, you add and commit the change like with any other file.
+
+```
+$ git add hello.txt
+$ git commit -m "resolve conflict"
+$ git push
+```
+
+Now the remote respository has the merge resolved.
